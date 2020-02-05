@@ -1,6 +1,9 @@
+package test;
 import static org.junit.Assert.*;
 
 import org.junit.Test;
+
+import schedule.EventScheduler;
 
 public class EventSchedulerTest {
 
@@ -9,13 +12,14 @@ public class EventSchedulerTest {
 		String testInputOne = "Proper Unit Tests for Anyone ​30min";
 		EventScheduler currentSchedule = new EventScheduler();
 		currentSchedule.processEvent(testInputOne);
-	    assertEquals("9:00AM  Proper Unit Tests for Anyone 30min", currentSchedule.eventListContainer.get(0));
+		
+	    assertEquals("9:00AM  Proper Unit Tests for Anyone 30min", currentSchedule.getEventListContainer().get(0));
 		String testInputTwo = "Why Python? ​45min";
 	    currentSchedule.processEvent(testInputTwo);
-	    assertEquals("9:30AM  Why Python? 45min", currentSchedule.eventListContainer.get(1));
+	    assertEquals("9:30AM  Why Python? 45min", currentSchedule.getEventListContainer().get(1));
 	    String testInputThree = "TDD for Embedded Systems ​30min";
 	    currentSchedule.processEvent(testInputThree);
-	    assertEquals("10:15AM  TDD for Embedded Systems 30min", currentSchedule.eventListContainer.get(2));
+	    assertEquals("10:15AM  TDD for Embedded Systems 30min",currentSchedule.getEventListContainer().get(2));
 	}
 
 	@Test
@@ -42,13 +46,13 @@ public class EventSchedulerTest {
 		String testOneName = " Proper Unit Tests for Anyone";
 		EventScheduler currentSchedule = new EventScheduler();
 		currentSchedule.scheduleEvent(testOneName, 30);
-	    assertEquals("9:00AM  Proper Unit Tests for Anyone 30min",currentSchedule.eventListContainer.get(0));
+	    assertEquals("9:00AM  Proper Unit Tests for Anyone 30min",currentSchedule.getEventListContainer().get(0));
 	    String testTwoName = " Why Python?";
 		currentSchedule.scheduleEvent(testTwoName, 30);
-	    assertEquals("9:30AM  Why Python? 30min",currentSchedule.eventListContainer.get(1));
+	    assertEquals("9:30AM  Why Python? 30min",currentSchedule.getEventListContainer().get(1));
 	    String testThreeName = " TDD for Embedded Systems";
 		currentSchedule.scheduleEvent(testThreeName, 30);
-	    assertEquals("10:00AM  TDD for Embedded Systems 30min",currentSchedule.eventListContainer.get(2));
+	    assertEquals("10:00AM  TDD for Embedded Systems 30min",currentSchedule.getEventListContainer().get(2));
 	}
 
 	@Test
@@ -56,14 +60,14 @@ public class EventSchedulerTest {
 		String testInputOneName = " Proper Unit Tests for Anyone";
 		EventScheduler currentSchedule = new EventScheduler();
 		currentSchedule.processMorningEvents(30, testInputOneName, 0);
-	    assertEquals("9:00AM  Proper Unit Tests for Anyone 30min",currentSchedule.eventListContainer.get(0));
+	    assertEquals("9:00AM  Proper Unit Tests for Anyone 30min",currentSchedule.getEventListContainer().get(0));
 	}
 
 	@Test
 	public void testProcessMidDayEvents() {
 		EventScheduler currentSchedule = new EventScheduler();
         currentSchedule.processMidDayEvents(30);
-	    assertEquals("12:00PM Lunch",currentSchedule.eventListContainer.get(0));
+	    assertEquals("12:00PM Lunch",currentSchedule.getEventListContainer().get(0));
 	}
 
 	@Test
@@ -71,7 +75,7 @@ public class EventSchedulerTest {
 		String testInputOneName = " Proper Unit Tests for Anyone";
 		EventScheduler currentSchedule = new EventScheduler();
 		currentSchedule.processAfternoonEvents(30, testInputOneName, 0);
-	    assertEquals("1:00PM  Proper Unit Tests for Anyone 30min",currentSchedule.eventListContainer.get(0));
+	    assertEquals("1:00PM  Proper Unit Tests for Anyone 30min",currentSchedule.getEventListContainer().get(0));
 	}
 
 	@Test
@@ -79,27 +83,27 @@ public class EventSchedulerTest {
 		String testOneName = " From Java 8 to Java 12";
 		EventScheduler currentSchedule = new EventScheduler();
 		currentSchedule.afternoonDuration = 220;
-		currentSchedule.currMinutes = 30;
-		currentSchedule.lightningEvents.push(testOneName);
+		currentSchedule.setCurrMinutes(30);
+		currentSchedule.getLightningEvents().push(testOneName);
 		currentSchedule.processNonCriticalEvents(10, testOneName);
-	    assertEquals("4:30PM From Java 8 to Java 12 lightning" ,currentSchedule.eventListContainer.get(0));
+	    assertEquals("4:30PM From Java 8 to Java 12 lightning" ,currentSchedule.getEventListContainer().get(0));
 	    currentSchedule.afternoonDuration = 240;
-		currentSchedule.currMinutes = 30;
-		currentSchedule.lightningEvents.push(testOneName);
+	    currentSchedule.setCurrMinutes(30);
+	    currentSchedule.getLightningEvents().push(testOneName);
 		currentSchedule.processNonCriticalEvents(10, testOneName);
-	    assertEquals("5:00PM Networking Event" ,currentSchedule.eventListContainer.get(1));
+	    assertEquals("5:00PM Networking Event" ,currentSchedule.getEventListContainer().get(1));
 	}
 
 
 	@Test
 	public void testDisplaySchedule() {
 		EventScheduler currentSchedule = new EventScheduler();
-		currentSchedule.eventListContainer.add("test one");
-		currentSchedule.eventListContainer.add("test two");
-		currentSchedule.eventListContainer.add("test three");
-	    assertEquals("test one" ,currentSchedule.eventListContainer.get(0));
-	    assertEquals("test two" ,currentSchedule.eventListContainer.get(1));
-	    assertEquals("test three" ,currentSchedule.eventListContainer.get(2));
+		currentSchedule.getEventListContainer().add("test one");
+		currentSchedule.getEventListContainer().add("test two");
+		currentSchedule.getEventListContainer().add("test three");
+	    assertEquals("test one" ,currentSchedule.getEventListContainer().get(0));
+	    assertEquals("test two" ,currentSchedule.getEventListContainer().get(1));
+	    assertEquals("test three" ,currentSchedule.getEventListContainer().get(2));
 	}
 
 }
