@@ -1,17 +1,43 @@
+package schedule;
 import java.util.ArrayList;
 import java.util.Stack;
 
 public class EventScheduler {
 
-	int morningStartTime = 9;
-	int afternoonStartTime = 1;
-	int moringDuration =  0;
-	int afternoonDuration = 0;
-	int currentHour = 0;
-	int currMinutes = 0;
+	private int morningStartTime = 9;
+	private int afternoonStartTime = 1;
+	private int moringDuration =  0;
+	public int afternoonDuration = 0;
+	private int currentHour = 0;
+	private int currMinutes = 0;
+	private Stack<String>  lightningEvents = new Stack<String>();
+	private ArrayList<String> eventListContainer  = new ArrayList<String>();
 
-	Stack<String>  lightningEvents = new Stack<String>();
-	ArrayList<String> eventListContainer  = new ArrayList<String>();
+	
+	public ArrayList<String> getEventListContainer() {
+		return eventListContainer;
+	}
+
+	public Stack<String> getLightningEvents() {
+		return lightningEvents;
+	}
+
+	public int getCurrMinutes() {
+		return currMinutes;
+	}
+
+	public void setCurrMinutes(int currMinutes) {
+		this.currMinutes = currMinutes;
+	}
+	
+	public int getAfternoonDuration() {
+		return afternoonDuration;
+	}
+
+	public void setAfternoonDuration(int afternoonDuration) {
+		this.afternoonDuration = afternoonDuration;
+	}
+
 
 	/**
 	 * Method used to process events
