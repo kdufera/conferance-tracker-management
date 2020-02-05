@@ -1,10 +1,10 @@
-Proper Unit Tests for Anyone ​60min 
+Proper Unit Tests for Anyone ​30min 
 Why Python? ​45min 
 TDD for Embedded Systems ​30min 
-Dependency Management with Interpreted languages ​45min 
-Java 8, really end of life ​45min 
+Dependency Management with Interpreted languages ​35min 
+Java 8, really end of life ​35min 
 From Java 8 to Java 12 ​lightning 
-Managing Network Latency ​60min 
+Managing Network Latency ​30min 
 BDD Gone Mad ​45min 
 Do you smell that?  (Code Smells) ​30min 
 Open Office Space or Closets???? ​30min 
@@ -17,4 +17,3 @@ Backends and FrontEnds in JavaScript? ​30min 
 CD on the Mainframe ​60min 
 Making Windows Development Enjoyable... ​30min 
 Modern Build Systems ​30min 
- 
