@@ -1,4 +1,6 @@
-Conference tracker management application 
+
+# conferance-tracker-management
+This application helps you organize diffent events scheduled for the day. 
 
 ## Build
 
